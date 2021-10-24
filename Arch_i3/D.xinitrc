@@ -53,9 +53,19 @@ fi
 #exec xterm -geometry 80x66+0+0 -name login
 
 export TERMINAL=alacritty
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 xset r rate 230 35
+xset -dpms
+xset s off
 #~/init_display 
-xrandr --output Virtual-1 --mode 1360x768
+#xrandr --output Virtual-1 --mode 1360x768
 nitrogen --restore &
+#pulseaudio --start &
 picom --no-vsync -b &
+fcitx-autostart > /dev/null 2&>1 &
 exec i3
+
+
